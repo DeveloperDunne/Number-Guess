@@ -23,12 +23,22 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent =
       "Nice one bruva, correct Number!";
   } else if (guess > secretNumber) {
-    document.querySelector(".message").textContent = "Too High Bro!";
-    score = score - 1;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "Too high bro!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You loose!";
+      document.querySelector(".score").textContent = 0;
+    }
   } else if (guess < secretNumber) {
-    document.querySelector(".message").textContent = "Too low mate!";
-    score = score - 1;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "Too low bro!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You loose!";
+      document.querySelector(".score").textContent = 0;
+    }
   }
 });
